@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Docente: Mejora de los Aprendizajes y Rol del Docente</title>
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f0f3f8;
+            color: #1e2b3c;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Encabezado principal */
+        .hero {
+            background: linear-gradient(135deg, #0b2b40, #1a4b6d);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .hero .tema-principal {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #e68a2e, #f0a55a);
+            color: #0b2b40;
+            display: inline-block;
+            padding: 0.7rem 2.5rem;
+            border-radius: 50px;
+            margin: 0.5rem 0 1rem;
+            box-shadow: 0 4px 15px rgba(230, 138, 46, 0.3);
+            letter-spacing: 0.5px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .hero .subtitulo {
+            font-size: 1.8rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.15);
+            display: inline-block;
+            padding: 0.4rem 2rem;
+            border-radius: 50px;
+            margin: 0.5rem 0 1rem;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero .centro {
+            font-size: 1.8rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.15);
+            display: inline-block;
+            padding: 0.3rem 2rem;
+            border-radius: 50px;
+            margin: 1rem 0 0.5rem;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero .docente {
+            font-size: 1.4rem;
+            margin-top: 0.5rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .hero .docente i {
+            color: #e68a2e;
+            margin-right: 8px;
+        }
+
+        .hero .fecha {
+            font-size: 1.3rem;
+            margin-top: 1rem;
+            background: rgba(255,255,255,0.1);
+            display: inline-block;
+            padding: 0.4rem 1.8rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero .fecha i {
+            color: #e68a2e;
+            margin-right: 8px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 1rem auto 0.5rem;
+            opacity: 0.9;
+        }
+
+        .lema {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-top: 1.5rem;
+            padding: 0.5rem 2rem;
+            background: linear-gradient(145deg, #e68a2e, #f0a55a);
+            color: #0b2b40;
+            display: inline-block;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(230, 138, 46, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .lema i {
+            margin: 0 0.5rem;
+            color: #0b2b40;
+        }
+
+        /* Barra de navegación */
+        .nav-bar {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0.7rem 0;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a4b6d;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.2s;
+            padding: 0.4rem 0.8rem;
+            border-radius: 30px;
+            background: #f0f6fb;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            background: #1a4b6d;
+            color: white;
+        }
+
+        /* Secciones generales */
+        section {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0, 30, 50, 0.08);
+            transition: transform 0.2s;
+        }
+
+        section:hover {
+            transform: translateY(-3px);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #0b2b40;
+            border-left: 8px solid #e68a2e;
+            padding-left: 1.2rem;
+            margin-bottom: 1.8rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #1a4b6d;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .grid-2, .grid-3 {
+            display: grid;
+            gap: 1.8rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        /* Tarjetas temáticas */
+        .card {
+            background: #f9fcff;
+            padding: 1.8rem 1.2rem;
+            border-radius: 24px;
+            border: 1px solid #e0ecf5;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            background: #ffffff;
+            border-color: #b0d0e5;
+            box-shadow: 0 10px 20px rgba(0, 60, 100, 0.1);
+        }
+
+        .card i {
+            font-size: 2.2rem;
+            color: #e68a2e;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            margin: 0.7rem 0;
+        }
+
+        .badge {
+            background: #1a4b6d;
+            color: white;
+            font-weight: 600;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Listas con íconos */
+        .check-list {
+            list-style: none;
+        }
+
+        .check-list li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .check-list i {
+            color: #e68a2e;
+            font-size: 1.3rem;
+            min-width: 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Bloques de caso */
+        .caso {
+            background: #f2f7fd;
+            border-radius: 28px;
+            padding: 1.8rem;
+            margin: 2rem 0;
+            border-left: 6px solid #e68a2e;
+        }
+
+        .caso h4 {
+            font-size: 1.5rem;
+            color: #0b2b40;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .preguntas {
+            background: rgba(230, 138, 46, 0.08);
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+        }
+
+        .preguntas p {
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #1a4b6d;
+        }
+
+        .preguntas ul {
+            margin-left: 1.5rem;
+        }
+
+        /* Introducción especial */
+        .intro-grupo {
+            background: linear-gradient(145deg, #e8f0fe, #d9e9fa);
+            border-radius: 32px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            border: 2px solid #e68a2e30;
+            box-shadow: 0 12px 20px rgba(0, 60, 100, 0.1);
+        }
+
+        .intro-grupo h2 {
+            border-left-color: #e68a2e;
+            margin-bottom: 1rem;
+        }
+
+        .intro-grupo p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .objetivo-destacado {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem;
+            margin: 1.5rem 0 0.5rem;
+            border-left: 8px solid #1a4b6d;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .objetivo-destacado i {
+            color: #e68a2e;
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .objetivo-destacado p {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0.5rem 0 0;
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #4a6679;
+            background: #d9e6f2;
+            border-radius: 40px 40px 0 0;
+            margin-top: 2rem;
+        }
+
+        .footer-lema {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a4b6d;
+            margin: 1rem 0 0.5rem;
+            background: rgba(255,255,255,0.5);
+            padding: 0.5rem 1.5rem;
+            display: inline-block;
+            border-radius: 40px;
+        }
+
+        /* Botón flotante (para subir) */
+        .btn-subir {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1a4b6d;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: 0.2s;
+            border: none;
+            z-index: 99;
+        }
+
+        .btn-subir:hover {
+            background: #e68a2e;
+        }
+
+        @media (max-width: 600px) {
+            .hero .tema-principal { font-size: 1.6rem; padding: 0.5rem 1.5rem; }
+            .hero .subtitulo { font-size: 1.3rem; }
+            .hero .centro { font-size: 1.4rem; }
+            .hero .docente { font-size: 1.2rem; }
+            .lema { font-size: 1.2rem; }
+            h2 { font-size: 1.7rem; }
+            .objetivo-destacado p { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botón subir -->
+    <div class="btn-subir" onclick="window.scrollTo({top:0,behavior:'smooth'});">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- HERO: Portada del taller con tema principal arriba y subtítulo abajo -->
+    <div class="hero">
+        <!-- TEMA PRINCIPAL (arriba) -->
+        <div class="tema-principal">
+            Mejora de los Aprendizajes y Rol del Docente como Sujeto Pedagógico
+        </div>
+        
+        <!-- SUBTÍTULO (abajo) -->
+        <div class="subtitulo">
+            🎓 Rol del Docente y la Familia
+        </div>
+
+        <div class="centro">
+            Centro Educativo Félix Ramón Fernández Camilo
+        </div>
+        <div class="docente">
+            <i class="fas fa-chalkboard-teacher"></i> Facilitador: Renan Taveras
+        </div>
+        <div class="fecha">
+            <i class="far fa-calendar-alt"></i> 18 de marzo de 2026
+        </div>
+        <p>Acompañamiento ante retos sociales: pobreza, violencia, consumo y desprotección</p>
+        <div class="lema">
+            <i class="fas fa-quote-left"></i> Construyendo Conocimiento, Transformando Vidas <i class="fas fa-quote-right"></i>
+        </div>
+    </div>
+
+    <!-- Barra de navegación rápida -->
+    <div class="nav-bar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#inicio-taller"><i class="fas fa-flag"></i> Inicio</a></li>
+                <li><a href="#realidad"><i class="fas fa-eye"></i> Realidad</a></li>
+                <li><a href="#factores"><i class="fas fa-chart-line"></i> Factores</a></li>
+                <li><a href="#rol-docente"><i class="fas fa-chalkboard-teacher"></i> Docente</a></li>
+                <li><a href="#psicologia"><i class="fas fa-heart"></i> Psicología</a></li>
+                <li><a href="#casos"><i class="fas fa-users"></i> Casos</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="container">
+
+        <!-- SECCIÓN: INTRODUCCIÓN Y OBJETIVO PARA TRABAJO EN GRUPO PEDAGÓGICO -->
+        <section id="inicio-taller" class="intro-grupo">
+            <h2>👥 Introducción al taller pedagógico</h2>
+            <p><strong>Contexto:</strong> La escuela enfrenta retos sociales que afectan el aprendizaje: pobreza, violencia, consumo de drogas y falta de acompañamiento familiar. Este espacio está diseñado para ser trabajado <strong>con todos los docentes en grupo pedagógico</strong>, reflexionando juntos sobre nuestra práctica y el vínculo con las familias, en el marco de la <strong>mejora de los aprendizajes y el rol del docente como sujeto pedagógico</strong>.</p>
+            
+            <div class="objetivo-destacado">
+                <div style="display: flex; align-items: center; flex-wrap: wrap;">
+                    <i class="fas fa-bullseye"></i>
+                    <p style="flex:1;"><strong>Objetivo general:</strong> Fortalecer el rol del docente y la familia para apoyar el desarrollo académico, emocional y social de los estudiantes, mediante el análisis colaborativo y la construcción de estrategias compartidas.</p>
+                </div>
+            </div>
+
+            <p style="font-style: italic; margin-top: 1rem;"><i class="fas fa-users" style="margin-right: 0.5rem;"></i> Dinámica sugerida: Trabajar por niveles o ciclos, analizar los casos y proponer acciones concretas para el centro.</p>
+        </section>
+
+        <!-- 1. Realidad de muchos estudiantes -->
+        <section id="realidad">
+            <h2>📌 Realidad de muchos estudiantes</h2>
+            <div class="grid-3">
+                <div class="card"><i class="fas fa-house-damage"></i> <strong>Entornos difíciles</strong><p>Delincuencia, violencia comunitaria, falta de apoyo.</p></div>
+                <div class="card"><i class="fas fa-frown"></i> <strong>Problemas emocionales</strong><p>Aislamiento, tristeza, baja autoestima.</p></div>
+                <div class="card"><i class="fas fa-puzzle-piece"></i> <strong>Necesidades específicas</strong><p>Dificultades de aprendizaje, atención, conducta.</p></div>
+            </div>
+        </section>
+
+        <!-- 2. Factores: familiares, sociales, económicos -->
+        <section id="factores">
+            <h2>🔍 Factores que inciden</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <i class="fas fa-users-slash"></i>
+                    <h3>Familiares</h3>
+                    <ul class="check-list">
+                        <li><i class="fas fa-angle-right"></i> Padres ausentes</li>
+                        <li><i class="fas fa-angle-right"></i> Conflictos familiares</li>
+                        <li><i class="fas fa-angle-right"></i> Consumo de sustancias</li>
+                        <li><i class="fas fa-angle-right"></i> Falta de supervisión</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <i class="fas fa-city"></i>
+                    <h3>Sociales</h3>
+                    <ul class="check-list">
+                        <li><i class="fas fa-angle-right"></i> Violencia comunitaria</li>
+                        <li><i class="fas fa-angle-right"></i> Influencias negativas</li>
+                        <li><i class="fas fa-angle-right"></i> Presión de grupo</li>
+                        <li><i class="fas fa-angle-right"></i> Conductas antisociales</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <i class="fas fa-coins"></i>
+                    <h3>Económicos</h3>
+                    <ul class="check-list">
+                        <li><i class="fas fa-angle-right"></i> Escasez de recursos</li>
+                        <li><i class="fas fa-angle-right"></i> Falta de materiales</li>
+                        <li><i class="fas fa-angle-right"></i> Responsabilidades tempranas</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Rol del docente + señales + estrategias -->
+        <section id="rol-docente">
+            <h2>🧑‍🏫 Rol del docente</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Funciones clave</h3>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check-circle"></i> Detectar señales de alerta</li>
+                        <li><i class="fas fa-check-circle"></i> Crear ambiente seguro</li>
+                        <li><i class="fas fa-check-circle"></i> Motivar y orientar</li>
+                        <li><i class="fas fa-check-circle"></i> Trabajar con orientación y psicología</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Señales de alerta</h3>
+                    <ul class="check-list">
+                        <li><i class="fas fa-circle-exclamation"></i> Cambios de conducta</li>
+                        <li><i class="fas fa-circle-exclamation"></i> Aislamiento</li>
+                        <li><i class="fas fa-circle-exclamation"></i> Bajo rendimiento</li>
+                        <li><i class="fas fa-circle-exclamation"></i> Agresividad / tristeza constante</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="margin-top:1.5rem;">
+                <i class="fas fa-clipboard-list"></i>
+                <h3>Estrategias pedagógicas</h3>
+                <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between;">
+                    <span class="badge">Refuerzo positivo</span>
+                    <span class="badge">Aprendizaje cooperativo</span>
+                    <span class="badge">Normas claras</span>
+                    <span class="badge">Adaptaciones pedagógicas</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Departamento de psicología y trabajo con familias -->
+        <section id="psicologia">
+            <h2>🧠 Psicología y familias</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Rol del Dpto. Psicología</h3>
+                    <ul class="check-list">
+                        <li><i class="fas fa-clipboard-check"></i> Evaluación psicopedagógica</li>
+                        <li><i class="fas fa-heart-circle-check"></i> Intervención emocional</li>
+                        <li><i class="fas fa-chalkboard-user"></i> Orientación a docentes</li>
+                        <li><i class="fas fa-people-arrows"></i> Trabajo con familias</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <i class="fas fa-family"></i>
+                    <h3>Trabajo con familias</h3>
+                    <ul class="check-list">
+                        <li><i class="fas fa-calendar-alt"></i> Reuniones periódicas</li>
+                        <li><i class="fas fa-school"></i> Escuela de padres</li>
+                        <li><i class="fas fa-message"></i> Comunicación constante</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="margin-top:1.5rem; background:#e4f0fa;">
+                <h3>📋 Intervención con estudiantes en riesgo</h3>
+                <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; font-weight:600;">
+                    <span>1. Identificación</span> <span>→</span>
+                    <span>2. Evaluación</span> <span>→</span>
+                    <span>3. Plan de apoyo</span> <span>→</span>
+                    <span>4. Seguimiento</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CASOS PARA DISCUTIR (corazón del taller) -->
+        <section id="casos">
+            <h2>🗣️ Casos para reflexionar en grupo</h2>
+
+            <!-- Caso 1 -->
+            <div class="caso">
+                <h4><i class="fas fa-user-graduate" style="color:#e68a2e;"></i> Caso 1: Estudiante con conducta agresiva</h4>
+                <p><strong>6to grado:</strong> Conductas agresivas con compañeros, baja concentración, responde con enojo a correcciones.</p>
+                <div class="preguntas">
+                    <p><i class="fas fa-comment-dots"></i> Preguntas para discutir en grupo:</p>
+                    <ul>
+                        <li>¿Qué factores podrían estar influyendo?</li>
+                        <li>¿Qué estrategias puede aplicar el docente?</li>
+                        <li>¿Cuándo debe intervenir orientación?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Caso 2 -->
+            <div class="caso">
+                <h4><i class="fas fa-cannabis" style="color:#e68a2e;"></i> Caso 2: Sospecha de consumo de sustancias</h4>
+                <p>Estudiante llega cansado, bajo rendimiento, cambios de conducta. Compañeros mencionan que se junta con jóvenes que consumen.</p>
+                <div class="preguntas">
+                    <p><i class="fas fa-comment-dots"></i> Preguntas para discutir en grupo:</p>
+                    <ul>
+                        <li>¿Qué señales de alerta se observan?</li>
+                        <li>¿Cómo debe actuar el docente?</li>
+                        <li>¿Qué rol tiene orientación?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Caso 3 -->
+            <div class="caso">
+                <h4><i class="fas fa-heart-broken" style="color:#e68a2e;"></i> Caso 3: Estudiante con problemas familiares</h4>
+                <p>Estudiante con tristeza constante, aislamiento, falta de motivación. Se conocen conflictos familiares en el hogar.</p>
+                <div class="preguntas">
+                    <p><i class="fas fa-comment-dots"></i> Preguntas para discutir en grupo:</p>
+                    <ul>
+                        <li>¿Cómo puede apoyar el docente emocionalmente?</li>
+                        <li>¿Qué estrategias puede aplicar la escuela?</li>
+                        <li>¿Cómo involucrar a la familia?</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Propuestas para el centro y conclusión -->
+        <section id="propuestas">
+            <h2>💡 Propuestas y cierre</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <i class="fas fa-school-circle-check"></i>
+                    <h3>Propuestas para el centro</h3>
+                    <ul class="check-list">
+                        <li><i class="fas fa-star"></i> Programas de prevención</li>
+                        <li><i class="fas fa-star"></i> Actividades deportivas y culturales</li>
+                        <li><i class="fas fa-star"></i> Tutorías académicas</li>
+                    </ul>
+                </div>
+                <div class="card" style="background: #e4eef9;">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Conclusión</h3>
+                    <p style="font-size:1.3rem; font-weight:500;">La educación es responsabilidad compartida entre escuela, familia y comunidad.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Taller para docentes — Mejora de los Aprendizajes y Rol del Docente como Sujeto Pedagógico</p>
+        <p style="margin-top:0.5rem; font-size:0.9rem;">Centro Educativo Félix Ramón Fernández Camilo | Facilitador: Renan Taveras</p>
+        <p class="footer-lema">
+            <i class="fas fa-quote-left"></i> Construyendo Conocimiento, Transformando Vidas <i class="fas fa-quote-right"></i>
+        </p>
+        <p style="margin-top:0.8rem; font-size:0.9rem;">18 de marzo de 2026 · Trabajo en grupo pedagógico</p>
+    </footer>
+
+    <!-- Pequeño script para resaltar la navegación suave -->
+    <script>
+        // Smooth scroll para los enlaces del menú
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1); // quita el #
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
